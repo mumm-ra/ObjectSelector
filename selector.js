@@ -1,4 +1,7 @@
 Selector = {
+	_:{
+		already_opened: false
+	},
 	xpath: function(event){
 	    var hierarchy = [],
 	        current = event.toElement||event.target;
@@ -63,8 +66,10 @@ Selector = {
 }
 
 $(document).ready(function(){
-	
-	$('body').on('mouseover mouseout click','*', Selector.highlighter);
+	if(!Selector._.already_opened) {
+		Selector._.already_opened = true;
+		$('body').on('mouseover mouseout click','*', Selector.highlighter);
+	}
 
 
 });
