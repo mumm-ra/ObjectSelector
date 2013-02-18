@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "HTML entity selector",
-  "description": "Extracts attributes & xpath from the selected HTML entity.",
+  "name": "Download Selected Links",
+  "description": "Select links on a page and download them.",
   "version": "0.1",
   "minimum_chrome_version": "16.0.884",
   "permissions": [
@@ -10,9 +10,13 @@
   "browser_action": { 
     "default_icon": "icon.png"
   },
-  "background":{
-    "scripts":["background.js"]
-    },
   "web_accessible_resources": [
-    "new_object_map/form.html"]
+    "new_object_map/form.html"],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "css": ["important_color.css"]
+    }
+  ],
+  "background":{"scripts":["background.js"]}
 }
