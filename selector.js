@@ -1,7 +1,4 @@
 Selector = {
-	_:{
-		already_opened: false
-	},
 	xpath: function(event){
 	    var hierarchy = [],
 	        current = event.toElement||event.target;
@@ -23,7 +20,6 @@ Selector = {
 	        	$(this).addClass('important_color');
 
 				var $parent_clickable = $(this).closest('[onclick]');
-				console.log($parent_clickable);
 				if ($parent_clickable != []){
 					$parent_clickable.data('onclick', $parent_clickable.attr('onclick'));
 					$parent_clickable.removeAttr('onclick');
@@ -66,10 +62,8 @@ Selector = {
 }
 
 $(document).ready(function(){
-	if(!Selector._.already_opened) {
-		Selector._.already_opened = true;
+
 		$('body').on('mouseover mouseout click','*', Selector.highlighter);
-	}
 
 
 });
