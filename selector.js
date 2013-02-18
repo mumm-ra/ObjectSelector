@@ -1,7 +1,10 @@
 Selector = {
-  xpath: function(event){
-      var hierarchy = [],
-          current = event.toElement||event.target;
+	_:{
+		already_opened: false
+	},
+	xpath: function(event){
+	    var hierarchy = [],
+	        current = event.toElement||event.target;
 
 	    while (current.parentNode){
 	        hierarchy.unshift(current);
@@ -63,18 +66,20 @@ Selector = {
 }
 
 $(document).ready(function(){
-	
-  $('body').prepend('<div id="topbar" style="display:none"></div>');
-  $('#topbar').load(chrome.extension.getURL('new_object_map/form.html'), function(){
-    $(this).slideDown(function(){
-      $('#new_object_map').submit(function(e){
-        e.preventDefault();
-        console.log('clicked!');
-      })
+	if(!Selector._.already_opened) {
+		Selector._.already_opened = true;
+    $('body').prepend('<div id="topbar" style="display:none"></div>');
+    $('#topbar').load(chrome.extension.getURL('new_object_map/form.html'), function(){
+      $(this).slideDown(function(){
+        $('#new_object_map').submit(function(e){
+          e.preventDefault();
+          console.log('clicked!');
+        })
+      });
     });
-  });
-
 	$('body > :not(#topbar)').on('mouseover mouseout click','*', Selector.highlighter);
+  }
+
 
 
 });
