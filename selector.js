@@ -7,7 +7,7 @@ $(document).ready(function(){
 	        	$(this).css('background-color','rgba(255,0,0,.5)');
 				break;
 			case 'mouseout':
-				//$(this).css('background-color', $(this).data('bgcolor'));
+				$(this).css('background-color', $(this).data('bgcolor'));
 				break;
 			case 'click':
 					console.log($(this));
