@@ -16,13 +16,25 @@ Selector = {
 	highlighter: function(event){
 		switch (event.type){
 			case 'mouseover':
-				$(this).data('bgcolor', $(this).css('background-color'));
-	        	$(this).css('background-color','rgba(255,0,0,.5)');
+				//$(this).data('bgcolor', $(this).css('background-color'));
+	        	$(this).addClass('important_color');
+
+				var $parent_clickable = $(this).closest('[onclick]');
+				console.log($parent_clickable);
+				if ($parent_clickable != []){
+					$parent_clickable.data('onclick', $parent_clickable.attr('onclick'));
+					$parent_clickable.removeAttr('onclick');
+				}
+				
 				break;
 			case 'mouseout':
-				$(this).css('background-color', $(this).data('bgcolor'));
+				//$(this).css('background-color', $(this).data('bgcolor'));
+				$(this).removeClass('important_color');
 				break;
 			case 'click':
+					event.stopPropagation();
+					event.preventDefault();
+
 
 					element_xpath = Selector.xpath(event);
 					element_id = this.id;
@@ -41,6 +53,7 @@ Selector = {
 					console.log("type", element_type);
 					console.log("content", element_content);
 					chrome.extension.sendMessage({"xpath": element_xpath}, function(response) {});
+					$('body').off('mouseover mouseout click','*');
 
 				break;
 		}

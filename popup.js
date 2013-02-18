@@ -103,15 +103,7 @@
 window.onload = function() {
   // document.getElementById('filter').onkeyup = filterLinks;
   // document.getElementById('regex').onchange = filterLinks;
-  // document.getElementById('toggle_all').onchange = toggleAll;
- console.log('load');
- 
-  $('#highlight').click(function() {
-    chrome.tabs.executeScript(null, { file: "jquery-1.9.1.min.js" });
-    chrome.tabs.executeScript(null, { file: "selector.js" });
-    window.close();
-  });
-
+  
 
   // document.getElementById('download1').onclick = downloadCheckedLinks;
 
