@@ -38,14 +38,28 @@ Selector = {
 					event.stopPropagation();
 					event.preventDefault();
 
+          $('input[name*="new_object_"]').val();
 
 					element_xpath = Selector.xpath(event);
-					element_id = this.id;
+          $('input[name="new_object_xpath"]').val(element_xpath);
+
+          element_id = this.id;
+          $('input[name="new_object_id"]').val(element_id);
+
 					element_class = this.classList.toString();
+          $('input[name="new_object_class"]').val(element_class);
+
 					element_tag = this.tagName;
+          $('input[name="new_object_tag"]').val(element_tag);
+
 					element_name = this.name;
+          $('input[name="new_object_name"]').val(element_name);
+
 					element_type = this.type;
+          $('input[name="new_object_type"]').val(element_type);
+
 					element_content = $(this).html();
+          $('input[name="new_object_content"]').val(element_content);
 
 					console.log("this", this);
 					console.log("xpath", element_xpath);
@@ -77,7 +91,7 @@ $(document).ready(function(){
         })
       });
     });
-	$('body > :not(#topbar)').on('mouseover mouseout click','*', Selector.highlighter);
+	  $('body > :not(#topbar)').on('mouseover mouseout click','*', Selector.highlighter);
   }
 
 
