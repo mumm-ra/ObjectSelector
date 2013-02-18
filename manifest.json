@@ -1,6 +1,6 @@
 {
-  "name": "Download Selected Links",
-  "description": "Select links on a page and download them.",
+  "name": "HTML entity selector",
+  "description": "Extracts attributes & xpath from the selected HTML entity.",
   "version": "0.1",
   "minimum_chrome_version": "16.0.884",
   "permissions": [
