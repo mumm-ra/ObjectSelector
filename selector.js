@@ -1,11 +1,18 @@
 $(document).ready(function(){
+  
   $('body').prepend('<div id="topbar" style="display:none"></div>');
   $('#topbar').load(chrome.extension.getURL('new_object_map/form.html'), function(){
-    $(this).slideDown();
+    $(this).slideDown(function(){
+      $('#new_object_map').submit(function(e){
+        e.preventDefault();
+        console.log('clicked!');
+      })
+    });
   });
 
 
-  $('body').on('mouseover mouseout click','*', function(event) {
+
+  jQuery('body > :not(#topbar)').on('mouseover mouseout click','*', function(event) {
     switch (event.type){
       case 'mouseover':
         $(this).data('bgcolor', $(this).css('background-color'));
