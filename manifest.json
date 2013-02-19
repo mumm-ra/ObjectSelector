@@ -11,7 +11,8 @@
     "default_icon": "icon.png"
   },
   "web_accessible_resources": [
-    "new_object_map/form.html"],
+    "new_object_map/form.html",
+    "new_object_map/styles.css"],
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],

@@ -1,0 +1,49 @@
+#nom_topbar{
+  color: black !important;
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  border: 1px solid black !important;
+  background-color: gray !important;
+}
+
+#nom_topbar h1{
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+#nom_info{
+    text-align: left !important;
+    margin-left:6px 24px 6px 24px !important;
+    background-color:red !important;
+}
+#nom_info span{
+    margin-left: 6px !important;
+}
+
+#new_object_map{
+  margin: 24px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  vertical-align: baseline !important;
+  margin-bottom: 20px !important; 
+}
+
+#nom_clearfix:after {
+  content: "." !important;
+  display: block !important;
+  height: 0 !important;
+  clear: both !important;
+  visibility: hidden !important;
+}
+
+.dp20,
+.dp25,
+.dp33,
+.dp50,
+.dp100{float:left !important; display: inline !important; *margin-left:-0.04em !important; } /* IE margin hack */
+
+/* dp = div percet */
+
+.dp20{width:20% !important;}
+.dp25{width:25% !important;}
+.dp33{width:33.33% !important;}
+.dp50{width:50% !important;}
+.dp100{width:100% !important;}
+.clear{ clear:both !important;}

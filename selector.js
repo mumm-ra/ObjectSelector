@@ -122,8 +122,15 @@ Selector = {
 $(document).ready(function(){
 
 
-    $('body').prepend('<div id="topbar" style="display:none"></div>');
-    $('#topbar').load(chrome.extension.getURL('new_object_map/form.html'), function(){
+    $('body').prepend('<div id="nom_topbar" style="display:none"></div>');
+    var style = document.createElement('link');
+    style.rel = 'stylesheet';
+    style.type = 'text/css';
+    style.href = chrome.extension.getURL('new_object_map/styles.css');
+    document.head.appendChild(style);
+    console.log('appended' + style);
+    
+    $('#nom_topbar').load(chrome.extension.getURL('new_object_map/form.html'), function(){
       $(this).slideDown(function(){
         $('#new_object_map').submit(function(e){
           e.preventDefault();
@@ -131,7 +138,7 @@ $(document).ready(function(){
         })
       });
     });
-	$('body > :not(#topbar)').on('mouseover mouseout click','*', Selector.highlighter);
+	$('body > :not(#nom_topbar)').on('mouseover mouseout click','*', Selector.highlighter);
 
 
 
